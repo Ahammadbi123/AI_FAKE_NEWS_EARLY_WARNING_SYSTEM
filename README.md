@@ -1,5 +1,7 @@
 # 📰 AI Fake News Early Warning System
 
+🚀 Live Demo: https://ai-fake-news-early-warning-system.onrender.com
+
 An intelligent AI-powered platform designed to detect fake news, analyze misinformation patterns, predict viral risk, and provide explainable insights before large-scale information spread.
 
 ---
