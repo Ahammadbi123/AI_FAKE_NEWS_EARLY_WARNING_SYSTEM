@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> AI Fake News Early Warning System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📰 AI Fake News Early Warning System</h1>
+
+    <p class="subtitle">
+        Analyze news DNA, predict fake-news risk,
+        and track misinformation propagation.
+    </p>
+
+    <form action="/analyze" method="POST">
+
+        <label for="news">
+            Enter News Content
+        </label>
+
+        <textarea
+            id="news"
+            name="news"
+            placeholder="Paste news article, headline, or social media post here..."
+            required>
+        </textarea>
+
+        <br>
+
+        <button type="submit">
+            Analyze News
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+/* ===== BODY ===== */
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+    padding:20px;
+}
+
+/* ===== MAIN CONTAINER ===== */
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0px 0px 15px rgba(0,0,0,0.1);
+}
+
+/* ===== HEADINGS ===== */
+
+h1{
+    color:#1e3a8a;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+h2{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+h3{
+    color:#dc2626;
+    font-size:24px;
+    margin-top:10px;
+}
+
+/* ===== SUBTITLE ===== */
+
+.subtitle{
+    text-align:center;
+    color:#555;
+    margin-bottom:25px;
+}
+
+/* ===== FORM ===== */
+
+label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+textarea{
+    width:100%;
+    height:220px;
+    padding:12px;
+    font-size:16px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    resize:none;
+    box-sizing:border-box;
+}
+
+/* ===== BUTTON ===== */
+
+button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    cursor:pointer;
+    border-radius:6px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1e40af;
+}
+
+/* ===== CARD DESIGN ===== */
+
+.card{
+    background:#f8fafc;
+    padding:20px;
+    margin-top:20px;
+    border-left:5px solid #2563eb;
+    border-radius:8px;
+    box-shadow:0px 2px 8px rgba(0,0,0,0.08);
+}
+
+/* ===== LIST ===== */
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+
+/* ===== LINKS ===== */
+
+a{
+    text-decoration:none;
+}
+
+/* ===== TABLE STYLE (Future Use) ===== */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table, th, td{
+    border:1px solid #ddd;
+}
+
+th{
+    background:#2563eb;
+    color:white;
+    padding:10px;
+}
+
+td{
+    padding:10px;
+}
+
+/* ===== RESULT STATUS COLORS ===== */
+
+.fake{
+    color:red;
+    font-weight:bold;
+}
+
+.real{
+    color:green;
+    font-weight:bold;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    text-align:center;
+    margin-top:30px;
+    color:#666;
+    font-size:14px;
+}

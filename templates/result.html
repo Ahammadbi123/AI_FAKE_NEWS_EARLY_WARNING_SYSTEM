@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Analysis Report</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📊 Fake News Analysis Report</h1>
+
+    <!-- Prediction -->
+
+    <div class="card">
+
+        <h2>Prediction</h2>
+
+        <h3>{{ prediction }}</h3>
+
+    </div>
+
+    <!-- DNA Report -->
+
+    <div class="card">
+
+        <h2>🧬 DNA Report</h2>
+
+        {% for k, v in dna.items() %}
+            <p><b>{{ k }}</b> : {{ v }}</p>
+        {% endfor %}
+
+    </div>
+
+    <!-- Risk Analysis -->
+
+    <div class="card">
+
+        <h2>⚠️ Risk Analysis</h2>
+
+        {% for k, v in risk.items() %}
+            <p><b>{{ k }}</b> : {{ v }}</p>
+        {% endfor %}
+
+    </div>
+
+    <!-- DNA Graph -->
+
+    <div class="card">
+
+        <h2>📊 DNA Analysis Graph</h2>
+
+        <canvas id="dnaChart"></canvas>
+
+    </div>
+
+    <!-- Risk Doughnut Chart -->
+
+    <div class="card">
+
+        <h2>🥧 Fake Risk Distribution</h2>
+
+        <div style="width:400px; margin:auto;">
+            <canvas id="riskChart"></canvas>
+        </div>
+
+    </div>
+
+    <!-- Why Fake -->
+
+    {% if prediction == "FAKE" %}
+
+    <div class="card">
+
+        <h2>❌ Why Fake?</h2>
+
+        <ul>
+        {% for reason in reasons %}
+            <li>{{ reason }}</li>
+        {% endfor %}
+        </ul>
+
+    </div>
+
+    {% endif %}
+
+    <!-- Why Real -->
+
+    {% if prediction == "REAL" %}
+
+    <div class="card">
+
+        <h2>✅ Why Real?</h2>
+
+        <ul>
+            <li>Content appears factual and informative</li>
+            <li>No strong clickbait indicators detected</li>
+            <li>Language appears neutral</li>
+            <li>No major misinformation patterns found</li>
+        </ul>
+
+    </div>
+
+    {% endif %}
+
+    <!-- Propagation Timeline -->
+
+    <div class="card">
+
+        <h2>📈 Propagation Timeline</h2>
+
+        <ul>
+        {% for item in timeline %}
+            <li>{{ item }}</li>
+        {% endfor %}
+        </ul>
+
+    </div>
+
+    <div style="text-align:center; margin-top:20px;">
+
+        <a href="/">
+            <button>
+                Analyze Another News
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+
+// DNA Bar Chart
+
+new Chart(
+document.getElementById('dnaChart'),
+{
+    type: 'bar',
+    data: {
+        labels: [
+            'Emotion',
+            'Bias',
+            'Evidence',
+            'Clickbait',
+            'Credibility'
+        ],
+        datasets: [{
+            label: 'DNA Score',
+            data: [
+                {{ dna_chart["Emotion"] }},
+                {{ dna_chart["Bias"] }},
+                {{ dna_chart["Evidence"] }},
+                {{ dna_chart["Clickbait"] }},
+                {{ dna_chart["Credibility"] }}
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100
+            }
+        }
+    }
+});
+
+// Fake Risk Doughnut Chart
+
+new Chart(
+document.getElementById('riskChart'),
+{
+    type: 'doughnut',
+
+    data: {
+         labels: [
+    'Fake Risk (68%)',
+    'Authentic (32%)'
+],
+        datasets: [{
+            data: [
+                {{ risk_chart["Fake Risk"] }},
+                {{ risk_chart["Authentic"] }}
+            ]
+        }]
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+                position: 'bottom'
+            },
+
+            title: {
+                display: true,
+                text: 'Fake News Risk Analysis'
+            }
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>
+
